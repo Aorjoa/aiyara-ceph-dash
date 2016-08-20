@@ -53,3 +53,14 @@
     padding: 2px;
     background-color: #272b30;
 }
+body {
+    background-color: #171616;
+}
+.header_block {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 1em;
+}
+.well {
+    background-color: #171616;
+}
