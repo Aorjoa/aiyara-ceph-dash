@@ -55,6 +55,7 @@
 }
 body {
     background-color: #171616;
+    font-family: 'Pridi', serif;
 }
 .header_block {
     display: inline-block;

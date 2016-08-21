@@ -1,10 +1,12 @@
 <!doctype html>
-<html lang="de">
+<html lang="th">
 <head>
   <meta charset="utf-8">
-  <title>Aiyara Cluster Ceph Dashboard</title>
+  <title>รายงานสถานะระบบไอยราคลัสเตอร์</title>
   <link href="{{ url_for('static', filename='css/bootstrap.min.slate.css') }}" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Pridi" rel="stylesheet">
   <link href="{{ url_for('static', filename='css/ceph.dash.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='css/sweetalert.css') }}" rel="stylesheet">
   <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}" />
   <link rel="apple-touch-icon" href="{{ url_for('static', filename='img/icon.png') }}" />
 
@@ -16,7 +18,7 @@
       <img src="../static/img/aiyara_logo.png" width="150px" height="150px">
       </div>
       <div class="header_block">
-      <h1>Aiyara Cluster Ceph Dashboard</h1>
+      <h1>รายงานสถานะระบบไอยราคลัสเตอร์</h1>
       <p>
         <!--show warning icon if data is getting to old-->
         <span id="last_update" style="display:none;" class="glyphicon glyphicon-warning-sign icon-warn"></span>
@@ -242,6 +244,7 @@
   <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.flot.byte.js') }}"></script>
   <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.flot.tooltip.js') }}"></script>
   <script type="text/javascript" src="{{ url_for('static', filename='js/ceph.dash.js') }}"></script>
+  <script type="text/javascript" src="{{ url_for('static', filename='js/sweetalert.min.js') }}"></script>
 
 </body>
 </html>
