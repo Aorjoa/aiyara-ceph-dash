@@ -1,6 +1,7 @@
 {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     "ceph_config": "/etc/ceph/ceph.conf"
 }
 =======
@@ -14,3 +15,28 @@
 >>>>>>> change ceph config.json for support influxdb
 =======
 >>>>>>> change config.json
+=======
+    "ceph_config": "/etc/ceph/ceph.conf",
+    "influxdb": {
+        "uri": "influxdb://192.168.4.2:8086/aiyara",
+        "metrics": [
+            {
+                "queries" : [
+                    "SELECT \"bytes_sec\" FROM \"ceph\" WHERE type = 'read' AND time > now() - 15m",
+                    "SELECT \"bytes_sec\" FROM \"ceph\" WHERE type = 'write' AND time > now() - 15m"
+                ],
+                "labels": [ "Read", "Write" ],
+                "mode": "byteRate"
+            },
+            {
+                "queries" : [
+                    "SELECT \"bytes_sec\" FROM \"ceph\" WHERE type = 'op' AND time > now() - 15m"
+                ],
+                "labels": [ "IOPS" ],
+                "colors": [ "#5bc0de" ]
+            }
+        ]
+    }
+}
+
+>>>>>>> git support influxdb build-in

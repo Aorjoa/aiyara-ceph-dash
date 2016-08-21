@@ -391,6 +391,7 @@ $(function () {
             }
 
             $("#write_bytes").html(writesPerSec);
+
             $("#read_bytes").html(readsPerSec);
 
             // update OSD states
@@ -464,5 +465,6 @@ $(function () {
     setInterval(worker, (refreshInterval * 1000));
     // }}}
 })
+
 
 // vim: set foldmethod=marker foldlevel=0 ts=4 sts=4 filetype=javascript fileencoding=utf-8 formatoptions+=ro expandtab:

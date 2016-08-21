@@ -1,0 +1,4 @@
+00000000000000000000000000000000 /home/pk007server/bin/python2.7
+2.3.1 0 0
+00000000000000000000000000000000 -r/home/pk007server/Downloads/ceph-dash/requirements.txt
+00000000000000000000000000000000 -r/home/pk007server/Downloads/ceph-dash/test-requirements.txt

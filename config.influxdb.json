@@ -5,15 +5,15 @@
         "metrics": [
             {
                 "queries" : [
-                    "SELECT mean(value) FROM \"ceph.cluster\" WHERE hostname =~ /ceph-mon-.*/ AND type = 'read_bytes_sec' AND time > now() - 15m GROUP BY time(10s);",
-                    "SELECT mean(value) FROM \"ceph.cluster\" WHERE hostname =~ /ceph-mon-.*/ AND type = 'write_bytes_sec' AND time > now() - 15m GROUP BY time(10s);"
+                    "SELECT \"bytes_sec\" FROM \"ceph\" WHERE type = 'read' AND time > now() - 15m",
+                    "SELECT \"bytes_sec\" FROM \"ceph\" WHERE type = 'write' AND time > now() - 15m"
                 ],
                 "labels": [ "Read", "Write" ],
                 "mode": "byteRate"
             },
             {
                 "queries" : [
-                    "SELECT mean(value) FROM \"ceph.cluster\" WHERE hostname =~ /ceph-mon-.*/ AND type = 'op_per_sec' AND time > now() - 15m GROUP BY time(10s);"
+                    "SELECT \"bytes_sec\" FROM \"ceph\" WHERE type = 'op' AND time > now() - 15m"
                 ],
                 "labels": [ "IOPS" ],
                 "colors": [ "#5bc0de" ]
