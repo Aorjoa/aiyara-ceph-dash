@@ -1,9 +1,13 @@
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
     "ceph_config": "/etc/ceph/ceph.conf"
 }
 =======
     "ceph_config": "/etc/ceph/ceph.conf",
+=======
+    "ceph_config": "/etc/ceph/ceph.conf"
+>>>>>>> change font size
 }
 <<<<<<< HEAD
 

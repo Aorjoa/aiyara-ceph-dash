@@ -65,3 +65,6 @@ body {
     background-color: #171616;
     border: none;
 }
+.alert {
+    font-size: 20px;
+}
