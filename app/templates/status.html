@@ -236,7 +236,6 @@
       </div>
     </div>
     <!--END CEPH PLACEMENTGROUP STATUS-->
-
   </div>
   <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-2.1.4.min.js') }}"></script>
   <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
@@ -246,6 +245,22 @@
   <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.flot.time.js') }}"></script>
   <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.flot.byte.js') }}"></script>
   <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.flot.tooltip.js') }}"></script>
+  <script type="text/javascript" src="{{ url_for('static', filename='js/raphael-2.1.4.min.js') }}"></script>
+  <script type="text/javascript" src="{{ url_for('static', filename='js/justgage.js') }}"></script>
   <script type="text/javascript" src="{{ url_for('static', filename='js/ceph.dash.js') }}"></script>
+  <script type="text/javascript">
+    var num_osds;
+    document.addEventListener("DOMContentLoaded", function(event) {
+        num_osds = new JustGage({
+            id: "num_osds",
+            value: <,
+            min: 0,
+            max: 60,
+            donut: true,
+            gaugeWidthScale: 0.6,
+            counter: true,
+            hideInnerShadow: true
+        });
+    </script>
 </body>
 </html>
