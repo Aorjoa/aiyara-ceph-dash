@@ -55,8 +55,7 @@
 }
 body {
     background-color: #171616;
-    font-family: 'Pridi', serif;
-    color: #ffa500;
+    font-family: 'Pridi', serif;\
 }
 .header_block {
     display: inline-block;
@@ -79,4 +78,7 @@ body {
 }
 .gauge tspan {
     color: white;
+}
+.alert {
+    color: #000000;
 }
