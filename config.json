@@ -1,3 +1,29 @@
 {
+<<<<<<< HEAD
     "ceph_config": "/etc/ceph/ceph.conf"
 }
+=======
+    "ceph_config": "/etc/ceph/ceph.conf",
+    "influxdb": {
+        "uri": "influxdb://192.168.4.2:8086/aiyara",
+        "metrics": [
+            {
+                "queries" : [
+                    "SELECT mean(value) FROM \"ceph.cluster\" WHERE hostname =~ /ceph-mon-.*/ AND type = 'read_bytes_sec' AND time > now() - 15m GROUP BY time(10s);",
+                    "SELECT mean(value) FROM \"ceph.cluster\" WHERE hostname =~ /ceph-mon-.*/ AND type = 'write_bytes_sec' AND time > now() - 15m GROUP BY time(10s);"
+                ],
+                "labels": [ "Read", "Write" ],
+                "mode": "byteRate"
+            },
+            {
+                "queries" : [
+                    "SELECT mean(value) FROM \"ceph.cluster\" WHERE hostname =~ /ceph-mon-.*/ AND type = 'op_per_sec' AND time > now() - 15m GROUP BY time(10s);"
+                ],
+                "labels": [ "IOPS" ],
+                "colors": [ "#5bc0de" ]
+            }
+        ]
+    }
+}
+
+>>>>>>> change ceph config.json for support influxdb
