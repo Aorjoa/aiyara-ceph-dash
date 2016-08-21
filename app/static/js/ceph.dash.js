@@ -232,7 +232,7 @@ $(function () {
 
     function get_status_banner(severity){
         if (severity == "success"){
-            return '<div class="sweet-alert header_block"><div class="sa-icon sa-success animate"> <span class="sa-line sa-tip animateSuccessTip"></span> <span class="sa-line sa-long animateSuccessLong"></span> <div class="sa-placeholder"></div> <div class="sa-fix"></div> </div></div>'
+            return '<div class="sweet-alert header_block" style="display: inline-block;"><div class="sa-icon sa-success animate"> <span class="sa-line sa-tip animateSuccessTip"></span> <span class="sa-line sa-long animateSuccessLong"></span> <div class="sa-placeholder"></div> <div class="sa-fix"></div> </div></div>'
         }
         if (severity == 'warning') {
             return '<div class="sweet-alert header_block" style="display: inline-block;"> <div class="sa-icon sa-warning pulseWarning" style="display: block;"> <span class="sa-body pulseWarningIns"></span> <span class="sa-dot pulseWarningIns"></span> </div> </div>'
@@ -426,7 +426,7 @@ $(function () {
 
             // update overall cluster state            
             $("#overall_status").empty();
-            $("#overall_status").append(get_status_banner(ceph2bootstrap[clusterStatusOverall])+message(ceph2bootstrap[clusterStatusOverall], 'Cluster Status:' + clusterStatusOverall));
+            $("#overall_status").append(get_status_banner(ceph2bootstrap[clusterStatusOverall])+message(ceph2bootstrap[clusterStatusOverall], 'Cluster Status : ' + clusterStatusOverall));
 
             // update overall cluster status details
             $("#overall_status").append('<ul class="list-group">');

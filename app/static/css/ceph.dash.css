@@ -66,6 +66,9 @@ body {
     background-color: #171616;
     border: none;
 }
-.alert {
+#overall_status {
     font-size: 20px;
+}
+#monitor_status {
+    font-size: 15px;
 }
