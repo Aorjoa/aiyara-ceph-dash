@@ -395,10 +395,10 @@ $(function () {
             $("#read_bytes").html(readsPerSec);
 
             // update OSD states
-            $("#num_osds").html(numOSDtotal);
-            $("#num_in_osds").html(numOSDin);
-            $("#num_up_osds").html(numOSDup);
-            $("#unhealthy_osds").html(numOSDunhealthy);
+            num_osds.refresh(numOSDtotal);
+            num_in_osds.refresh(numOSDin);
+            num_up_osds.refresh(numOSDup);
+            unhealthy_osds.refresh(numOSDunhealthy);
 
             // update unhealthy osd popover if there are any unhealthy osds
             osdPopover = $('#unhealthy_osds').data('bs.popover');

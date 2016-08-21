@@ -72,3 +72,10 @@ body {
 #monitor_status {
     font-size: 15px;
 }
+.gauge {
+    width: 250px;
+    height: 250px;
+}
+.gauge tspan {
+    color: white;
+}

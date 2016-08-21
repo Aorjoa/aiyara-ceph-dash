@@ -76,7 +76,7 @@
             <div class="panel panel-info">
               <div class="panel-heading">จำนวนทั้งหมด</div>
               <!--here we add the total number of osds-->
-              <div class="panel-body" id="num_osds"></div>
+              <div class="gauge" id="num_osds"></div>
             </div>
           </div>
 
@@ -84,7 +84,7 @@
             <div class="panel panel-success">
               <div class="panel-heading">อยู่ในระบบ</div>
               <!--here we add the number of osds with IN state-->
-              <div class="panel-body" id="num_in_osds"></div>
+              <div class="gauge" id="num_in_osds"></div>
             </div>
           </div>  
 
@@ -92,7 +92,7 @@
             <div class="panel panel-success">
               <div class="panel-heading">ใช้งาน</div>
               <!--here we add the number of osds with UP state-->
-              <div class="panel-body" id="num_up_osds"></div>
+              <div class="gauge" id="num_up_osds"></div>
             </div>
           </div>  
 
@@ -100,7 +100,7 @@
             <div class="panel panel-danger">
               <div class="panel-heading">ผิดพลาด</div>
               <!--here we count the osds with and unhealthy state-->
-              <div class="panel-body" id="unhealthy_osds"></div>
+              <div class="gauge" id="unhealthy_osds"></div>
             </div>
           </div>  
         </div>
@@ -237,6 +237,103 @@
     </div>
     <!--END CEPH PLACEMENTGROUP STATUS-->
   </div>
+    <script type="text/javascript">
+    var num_osds;
+    document.addEventListener("DOMContentLoaded", function(event) {
+        num_osds = new JustGage({
+            id: "num_osds",
+            value: 0,
+            min: 0,
+            max: 60,
+            donut: true,
+            gaugeWidthScale: 0.6,
+            counter: true,
+           customSectors: [{
+          color: '#99cc00',
+          lo: 58,
+          hi: 60
+        },{
+          color: '#ffa500',
+          lo: 55,
+          hi: 58
+        },{
+          color: '#ff0000',
+          lo: 0,
+          hi: 55
+        }],
+        valueFontColor: "#ffa500",
+        hideInnerShadow: true
+        });
+
+        num_in_osds = new JustGage({
+            id: "num_in_osds",
+            value: 0,
+            min: 0,
+            max: 60,
+            donut: true,
+            gaugeWidthScale: 0.6,
+            counter: true,
+           customSectors: [{
+          color: '#99cc00',
+          lo: 58,
+          hi: 60
+        },{
+          color: '#ffa500',
+          lo: 55,
+          hi: 58
+        },{
+          color: '#ff0000',
+          lo: 0,
+          hi: 55
+        }],
+        valueFontColor: "#ffa500",
+        hideInnerShadow: true
+        });
+
+
+        num_up_osds = new JustGage({
+            id: "num_up_osds",
+            value: 0,
+            min: 0,
+            max: 60,
+            donut: true,
+            gaugeWidthScale: 0.6,
+            counter: true,
+           customSectors: [{
+          color: '#99cc00',
+          lo: 58,
+          hi: 60
+        },{
+          color: '#ffa500',
+          lo: 55,
+          hi: 58
+        },{
+          color: '#ff0000',
+          lo: 0,
+          hi: 55
+        }],
+        valueFontColor: "#ffa500",
+        hideInnerShadow: true
+        });
+
+        unhealthy_osds = new JustGage({
+            id: "unhealthy_osds",
+            value: 0,
+            min: 0,
+            max: 60,
+            donut: true,
+            gaugeWidthScale: 0.6,
+            counter: true,
+           customSectors: [{
+          color: '#ff0000',
+          lo: 0,
+          hi: 100
+        }],
+        valueFontColor: "white",
+        hideInnerShadow: true
+        });
+        });
+    </script>
   <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-2.1.4.min.js') }}"></script>
   <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
   <script type="text/javascript" src="{{ url_for('static', filename='js/globalize.min.js') }}"></script>
@@ -248,19 +345,6 @@
   <script type="text/javascript" src="{{ url_for('static', filename='js/raphael-2.1.4.min.js') }}"></script>
   <script type="text/javascript" src="{{ url_for('static', filename='js/justgage.js') }}"></script>
   <script type="text/javascript" src="{{ url_for('static', filename='js/ceph.dash.js') }}"></script>
-  <script type="text/javascript">
-    var num_osds;
-    document.addEventListener("DOMContentLoaded", function(event) {
-        num_osds = new JustGage({
-            id: "num_osds",
-            value: <,
-            min: 0,
-            max: 60,
-            donut: true,
-            gaugeWidthScale: 0.6,
-            counter: true,
-            hideInnerShadow: true
-        });
-    </script>
+
 </body>
 </html>
