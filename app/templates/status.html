@@ -2,7 +2,7 @@
 <html lang="th">
 <head>
   <meta charset="utf-8">
-  <title>รายงานสถานะระบบไอยราคลัสเตอร์</title>
+  <title>ระบบรายงานสถานะไอยราคลัสเตอร์</title>
   <link href="{{ url_for('static', filename='css/bootstrap.min.slate.css') }}" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Pridi" rel="stylesheet">
   <link href="{{ url_for('static', filename='css/ceph.dash.css') }}" rel="stylesheet">
@@ -18,13 +18,15 @@
       <img src="../static/img/aiyara_logo.png" width="150px" height="150px">
       </div>
       <div class="header_block">
-      <h1>รายงานสถานะระบบไอยราคลัสเตอร์</h1>
+      <h1>ระบบรายงานสถานะไอยราคลัสเตอร์</h1>
       <p>
         <!--show warning icon if data is getting to old-->
         <span id="last_update" style="display:none;" class="glyphicon glyphicon-warning-sign icon-warn"></span>
         <!--add cluster fsid for informational purposes-->
+        <span>รุ่น : 1.0</span><br/>
         <span>Cluster ID : </span>
-        <small id="cluster_fsid"></small>
+        <small id="cluster_fsid"></small><br/>
+        <span>Ceph version : 0.94.7 (d56bdf93ced6b80b07397d57e3fa68fe68304432)</span>
       </p>
       </div>
     </div>
@@ -33,11 +35,13 @@
     <div class="panel panel-primary">
       <div class="panel-heading cd-collapsable">
         <h3 class="panel-title">
-          Overall Status
+          ภาพรวมของระบบ
         </h3>
       </div>
       <!--here we add the overall status-->
+      <div>
       <div class="panel-body" id="overall_status"></div>
+      </div>
     </div>
     <!--END CEPH OVERALL CLUSTER STATUS-->
 
@@ -45,7 +49,7 @@
     <div class="panel panel-primary">
       <div class="panel-heading cd-collapsable">
         <h3 class="panel-title">
-          Monitor Status
+          สถานะของตัวควบคุมงาน
         </h3>
       </div>
       <div class="panel-body">
@@ -59,7 +63,7 @@
     <div class="panel panel-primary">
       <div class="panel-heading cd-collapsable">
         <h3 class="panel-title">
-          OSD Status
+          สถานะของหน่วยเก็บข้อมูล
         </h3>
       </div>
       <div class="panel-body" align="center">
@@ -70,7 +74,7 @@
         <div class="row">
           <div class="col-md-3">
             <div class="panel panel-info">
-              <div class="panel-heading">Total</div>
+              <div class="panel-heading">จำนวนทั้งหมด</div>
               <!--here we add the total number of osds-->
               <div class="panel-body" id="num_osds"></div>
             </div>
@@ -78,7 +82,7 @@
 
           <div class="col-md-3">
             <div class="panel panel-success">
-              <div class="panel-heading">In</div>
+              <div class="panel-heading">อยู่ในระบบ</div>
               <!--here we add the number of osds with IN state-->
               <div class="panel-body" id="num_in_osds"></div>
             </div>
@@ -86,7 +90,7 @@
 
           <div class="col-md-3">
             <div class="panel panel-success">
-              <div class="panel-heading">Up</div>
+              <div class="panel-heading">ใช้งาน</div>
               <!--here we add the number of osds with UP state-->
               <div class="panel-body" id="num_up_osds"></div>
             </div>
@@ -94,7 +98,7 @@
 
           <div class="col-md-3">
             <div class="panel panel-danger">
-              <div class="panel-heading">Unhealthy</div>
+              <div class="panel-heading">ผิดพลาด</div>
               <!--here we count the osds with and unhealthy state-->
               <div class="panel-body" id="unhealthy_osds"></div>
             </div>
@@ -136,7 +140,7 @@
     <div class="panel panel-primary">
       <div class="panel-heading cd-collapsable">
         <h3 class="panel-title">
-          Placement Group Status
+          สถานะของ Placement Group
         </h3>
       </div>
       <div class="panel-body">
@@ -145,7 +149,7 @@
 
           <div class="col-md-4">
             <div class="panel panel-default">
-              <div class="panel-heading">Storage</div>
+              <div class="panel-heading">การเก็บข้อมูล</div>
               <!--here we place the fancy storage usage gauge-->
               <div class="panel-body" id="utilization" style="height:385px"></div>
               <div class="panel-footer">
@@ -244,7 +248,5 @@
   <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.flot.byte.js') }}"></script>
   <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.flot.tooltip.js') }}"></script>
   <script type="text/javascript" src="{{ url_for('static', filename='js/ceph.dash.js') }}"></script>
-  <script type="text/javascript" src="{{ url_for('static', filename='js/sweetalert.min.js') }}"></script>
-
 </body>
 </html>

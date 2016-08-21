@@ -208,7 +208,7 @@ $(function () {
 
 
               if (timeDiff > outDatedWarning) {
-                  msg = 'Content has last been refreshed more than ' + timeDiff + ' seconds before';
+                  msg = 'ระบบไม่สามารถอัพเดทได้ตั้งแต่ ' + timeDiff + ' วินาทีที่แล้ว.';
                   $('#last_update').show();
                   $('#last_update').tooltip({
                       placement: 'bottom',
@@ -223,12 +223,25 @@ $(function () {
 
     // CREATE A ALERT MESSAGE {{{
     function message(severity, msg) {
-        if (severity == 'success') { icon = 'ok' }
+        if (severity == 'success') { icon = 'ok'}
         if (severity == 'warning') { icon = 'flash' }
         if (severity == 'danger') { icon = 'remove' }
-        return '<div class="alert alert-' + severity + '"><strong><span class="glyphicon glyphicon-' + icon + '">&nbsp;</span>' + msg + '</strong></div>';
+        return '<div class=" alert alert-' + severity + ' " style="display: inline-block;"><strong><span class="glyphicon glyphicon-' + icon + '">&nbsp;</span>' + msg + '</strong></div>';
     }
     // }}}
+
+    function get_status_banner(severity){
+        if (severity == "success"){
+            return '<div class="sweet-alert header_block"><div class="sa-icon sa-success animate"> <span class="sa-line sa-tip animateSuccessTip"></span> <span class="sa-line sa-long animateSuccessLong"></span> <div class="sa-placeholder"></div> <div class="sa-fix"></div> </div></div>'
+        }
+        if (severity == 'warning') {
+            return '<div class="sweet-alert header_block" style="display: inline-block;"> <div class="sa-icon sa-warning pulseWarning" style="display: block;"> <span class="sa-body pulseWarningIns"></span> <span class="sa-dot pulseWarningIns"></span> </div> </div>'
+        }
+        if (severity == 'danger') {
+            return '<div class="sweet-alert header_block" style="display: inline-block;"> <div class="sa-icon sa-error animateErrorIcon"> <span class="sa-x-mark animateXMark"> <span class="sa-line sa-left"></span> <span class="sa-line sa-right"></span> </span> </div> </div>'
+        }
+        return ""
+    }
 
     // CREATE PANEL {{{
     function panel(severity, titel, message) {
@@ -410,9 +423,9 @@ $(function () {
                 $("#osd_warning").append(message('warning', 'OSD NEARFULL WARNING'));
             }
 
-            // update overall cluster state
+            // update overall cluster state            
             $("#overall_status").empty();
-            $("#overall_status").append(message(ceph2bootstrap[clusterStatusOverall], 'Cluster Status:' + clusterStatusOverall));
+            $("#overall_status").append(get_status_banner(ceph2bootstrap[clusterStatusOverall])+message(ceph2bootstrap[clusterStatusOverall], 'Cluster Status:' + clusterStatusOverall));
 
             // update overall cluster status details
             $("#overall_status").append('<ul class="list-group">');
