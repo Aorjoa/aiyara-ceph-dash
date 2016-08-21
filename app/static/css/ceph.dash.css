@@ -63,4 +63,5 @@ body {
 }
 .well {
     background-color: #171616;
+    border: none;
 }
