@@ -59,7 +59,7 @@ I also did some minor code refactoring to clean everything up a bit.
 ### Standalone InfluxDB
 
 Standalone InfluxDB mode support self insert data to InfluxDB (without additional tool for store data into InfluxDB eg. telegraf)
-![screenshot04](https://github.com/aorjoa/aiyara-ceph-dash/raw/aiyara/screenshots/screencapture-192-168-4-9-5000-1471799097289.png)
+![screenshot04](https://github.com/aorjoa/aiyara-ceph-dash/raw/aiyara/screenshots/standalone-influxdb.png)
 
 
 Quickstart
@@ -123,6 +123,5 @@ There is a sample configuration file called ```config.graphite.json```. Everythi
 
 Here you can see an example where one graph shows the bytes read/write per second, and another one shows the IOPS during the last two hours:
 
-![screenshot01](https://github.com/crapworks/ceph-dash/raw/master/screenshots/ceph-dash-graphite.png)
-
+![screenshot04](https://github.com/aorjoa/aiyara-ceph-dash/raw/aiyara/screenshots/screencapture-192-168-4-9-5000-1471799097289.png)
 
