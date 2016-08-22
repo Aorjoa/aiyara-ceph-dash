@@ -1,11 +1,12 @@
-ceph-dash - a free ceph dashboard / monitoring api
+Aiyara-ceph-dash - a free ceph dashboard / monitoring api
 ==================================================
-
-- [ceph-dash - a free ceph dashboard / monitoring api](#user-content-ceph-dash---a-free-ceph-dashboard--monitoring-api)
+This repository fork from Crapworks/ceph-dash. Thanks Crapworks.
+- [Aiyara-ceph-dash - a free ceph dashboard / monitoring api](#user-content-ceph-dash---a-free-ceph-dashboard--monitoring-api)
 	- [Newest Feature](#user-content-newest-feature)
 		- [InfluxDB support](#user-content-influxdb-support)
 		- [Old content warning](#user-content-old-content-warning)
 		- [Unhealthy OSD popover](#user-content-unhealthy-osd-popover)
+		- [Support Standalone InfluxDB](#user-content-standalone-influxdb)
 	- [Quickstart](#user-content-quickstart)
 	- [Dashboard](#user-content-dashboard)
 	- [REST Api](#user-content-rest-api)
@@ -54,6 +55,12 @@ The current release features a popover, which becomes available if there are any
 ![screenshot03](https://github.com/crapworks/ceph-dash/raw/master/screenshots/ceph-dash-popover.png)
 
 I also did some minor code refactoring to clean everything up a bit.
+
+### Standalone InfluxDB
+
+Standalone InfluxDB mode support self insert data to InfluxDB (without additional tool for store data into InfluxDB eg. telegraf)
+![screenshot04](https://github.com/aorjoa/aiyara-ceph/raw/aiyara/screenshots/screencapture-192-168-4-9-5000-1471799097289.png)
+
 
 Quickstart
 ----------
@@ -117,4 +124,5 @@ There is a sample configuration file called ```config.graphite.json```. Everythi
 Here you can see an example where one graph shows the bytes read/write per second, and another one shows the IOPS during the last two hours:
 
 ![screenshot01](https://github.com/crapworks/ceph-dash/raw/master/screenshots/ceph-dash-graphite.png)
+
 
