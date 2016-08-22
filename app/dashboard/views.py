@@ -15,8 +15,6 @@ from rados import Error as RadosError
 
 from app.base import ApiResource
 
-from influxdb import InfluxDBClient
-import datetime
 
 class CephClusterProperties(dict):
     """
@@ -91,17 +89,6 @@ def get_unhealthy_osd_details(osd_status):
 
     return unhealthy_osds
 
-def create_json_body(rw,bytes_sec):
-        return [
-        {
-            "measurement": "ceph",
-            "time": datetime.datetime.now().isoformat(),
-            "fields": {
-                "type": rw,
-                "bytes_sec": bytes_sec,
-            }
-        }
-    ]
 
 class DashboardResource(ApiResource):
     """
@@ -121,28 +108,11 @@ class DashboardResource(ApiResource):
         self.config = current_app.config['USER_CONFIG']
         self.clusterprop = CephClusterProperties(self.config)
 
-
-
     def get(self):
         with Rados(**self.clusterprop) as cluster:
             cluster_status = CephClusterCommand(cluster, prefix='status', format='json')
             if 'err' in cluster_status:
                 abort(500, cluster_status['err'])
-
-            config = current_app.config['USER_CONFIG'].get('influxdb', {})
-            client = InfluxDBClient.from_DSN(config['uri'], timeout=5)
-            if 'write_bytes_sec' in cluster_status['pgmap']:
-                client.write_points(create_json_body("write",cluster_status['pgmap']['write_bytes_sec']))
-            else:
-                client.write_points(create_json_body("write",0))
-            if 'read_bytes_sec' in cluster_status['pgmap']:
-                client.write_points(create_json_body("read",cluster_status['pgmap']['read_bytes_sec']))
-            else:
-                client.write_points(create_json_body("read",0))
-            if 'op_per_sec' in cluster_status['pgmap']:
-                client.write_points(create_json_body("op",cluster_status['pgmap']['op_per_sec']))
-            else:
-                client.write_points(create_json_body("op",0))
 
             # check for unhealthy osds and get additional osd infos from cluster
             total_osds = cluster_status['osdmap']['osdmap']['num_osds']
@@ -161,4 +131,3 @@ class DashboardResource(ApiResource):
                 return jsonify(cluster_status)
             else:
                 return render_template('status.html', data=cluster_status, config=self.config)
-

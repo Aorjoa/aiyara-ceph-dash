@@ -1,19 +1,19 @@
 {
     "ceph_config": "/etc/ceph/ceph.conf",
     "influxdb": {
-        "uri": "influxdb://192.168.4.2:8086/aiyara",
+        "uri": "influxdb://myinfluxdb.server.com:8086/mydatabase",
         "metrics": [
             {
                 "queries" : [
-                    "SELECT \"bytes_sec\" FROM \"ceph\" WHERE type = 'read' AND time > now() - 15m",
-                    "SELECT \"bytes_sec\" FROM \"ceph\" WHERE type = 'write' AND time > now() - 15m"
+                    "SELECT mean(value) FROM \"ceph.cluster\" WHERE hostname =~ /ceph-mon-.*/ AND type = 'read_bytes_sec' AND time > now() - 15m GROUP BY time(10s);",
+                    "SELECT mean(value) FROM \"ceph.cluster\" WHERE hostname =~ /ceph-mon-.*/ AND type = 'write_bytes_sec' AND time > now() - 15m GROUP BY time(10s);"
                 ],
                 "labels": [ "Read", "Write" ],
                 "mode": "byteRate"
             },
             {
                 "queries" : [
-                    "SELECT \"bytes_sec\" FROM \"ceph\" WHERE type = 'op' AND time > now() - 15m"
+                    "SELECT mean(value) FROM \"ceph.cluster\" WHERE hostname =~ /ceph-mon-.*/ AND type = 'op_per_sec' AND time > now() - 15m GROUP BY time(10s);"
                 ],
                 "labels": [ "IOPS" ],
                 "colors": [ "#5bc0de" ]
