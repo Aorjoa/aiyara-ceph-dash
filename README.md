@@ -59,7 +59,7 @@ I also did some minor code refactoring to clean everything up a bit.
 ### Standalone InfluxDB
 
 Standalone InfluxDB mode support self insert data to InfluxDB (without additional tool for store data into InfluxDB eg. telegraf)
-![screenshot04](https://github.com/aorjoa/aiyara-ceph/raw/aiyara/screenshots/screencapture-192-168-4-9-5000-1471799097289.png)
+![screenshot04](https://github.com/aorjoa/aiyara-ceph-dash/raw/aiyara/screenshots/screencapture-192-168-4-9-5000-1471799097289.png)
 
 
 Quickstart
