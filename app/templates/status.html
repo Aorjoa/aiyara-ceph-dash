@@ -240,7 +240,7 @@
     <script type="text/javascript">
     var num_osds;
     document.addEventListener("DOMContentLoaded", function(event) {
-        num_osds = new JustGage({
+      num_osds = new JustGage({
             id: "num_osds",
             value: 0,
             min: 0,
@@ -248,7 +248,7 @@
             donut: true,
             gaugeWidthScale: 0.6,
             counter: true,
-           customSectors: [{
+        customSectors: [{
           color: '#99cc00',
           lo: 58,
           hi: 60
@@ -264,7 +264,8 @@
         valueFontColor: "#ffa500",
         hideInnerShadow: true
         });
-        num_in_osds = new JustGage({
+      
+      num_in_osds = new JustGage({
             id: "num_in_osds",
             value: 0,
             min: 0,
@@ -288,7 +289,8 @@
         valueFontColor: "#ffa500",
         hideInnerShadow: true
         });
-        num_up_osds = new JustGage({
+      
+      num_up_osds = new JustGage({
             id: "num_up_osds",
             value: 0,
             min: 0,
@@ -312,7 +314,8 @@
         valueFontColor: "#ffa500",
         hideInnerShadow: true
         });
-        unhealthy_osds = new JustGage({
+      
+      unhealthy_osds = new JustGage({
             id: "unhealthy_osds",
             value: 0,
             min: 0,
